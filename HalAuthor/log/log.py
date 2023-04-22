@@ -3,7 +3,7 @@ import os
 import sys
 
 from enum import Enum
-from datetime import datetime
+from lib import get_now_time
 
 log_dir = "log/out"
 if not os.path.exists(log_dir):
@@ -88,6 +88,5 @@ def __print_log(logtag:str, msg:str):
         logtag (str): ログレベル
         msg (str): ログ出力文字列
     """
-    now = datetime.now()
-    formatted_now = now.strftime("%Y-%m-%d %H:%M:%S")
-    print(f"[{formatted_now}] level:{logtag} message:{msg}")
+    datetime = get_now_time()
+    print(f"[{datetime}] level:{logtag} message:{msg}")
